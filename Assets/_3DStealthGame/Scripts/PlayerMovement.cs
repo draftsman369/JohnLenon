@@ -9,13 +9,18 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("References")]
     private Rigidbody playerRigidbody;
+    private Animator playerAnimator;
     private Quaternion targetRotation;
+    private int isWalkingHash = Animator.StringToHash("IsWalking");
+
 
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float turnSpeed = 5f;
     Vector2 inputVector;
     Vector3 moveDirection;
+
+
 
     private void OnEnable()
     {
@@ -30,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody>();
+        playerAnimator = GetComponent<Animator>();
     }   
 
 
@@ -39,6 +45,11 @@ public class PlayerMovement : MonoBehaviour
         moveDirection.Set(inputVector.x, 0, inputVector.y);
 
         moveDirection.Normalize();
+
+        //Set Animation
+        bool isWalking = !Mathf.Approximately(moveDirection.sqrMagnitude, 0f);
+        playerAnimator.SetBool(isWalkingHash, isWalking);
+
     }
 
     private void FixedUpdate()
