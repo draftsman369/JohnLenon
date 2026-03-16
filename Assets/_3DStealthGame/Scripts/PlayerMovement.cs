@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator playerAnimator;
     private Quaternion targetRotation;
     private int isWalkingHash = Animator.StringToHash("IsWalking");
+    public AudioSource footstepAudioSource;
 
 
     [Header("Movement Settings")]
@@ -44,10 +45,27 @@ public class PlayerMovement : MonoBehaviour
         inputVector = moveAction.ReadValue<Vector2>();
         moveDirection.Set(inputVector.x, 0, inputVector.y);
 
+        if(moveDirection.sqrMagnitude < 0.01f)
+        {
+            moveDirection = Vector3.zero;
+        }
+
         moveDirection.Normalize();
 
         //Set Animation
         bool isWalking = !Mathf.Approximately(moveDirection.sqrMagnitude, 0f);
+
+        footstepAudioSource.Play();
+
+        if(isWalking && !footstepAudioSource.isPlaying)
+        {
+            footstepAudioSource.Play();
+        }
+        else if(!isWalking && footstepAudioSource.isPlaying)
+        {
+            footstepAudioSource.Stop();
+        }
+
         playerAnimator.SetBool(isWalkingHash, isWalking);
 
     }

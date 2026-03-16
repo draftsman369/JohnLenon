@@ -232,7 +232,7 @@ Light:
   serializedVersion: 12
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1082,7 +1082,6 @@ GameObject:
   m_Component:
   - component: {fileID: 961739753}
   - component: {fileID: 961739752}
-  - component: {fileID: 961739751}
   - component: {fileID: 961739750}
   - component: {fileID: 961739754}
   m_Layer: 0
@@ -1136,14 +1135,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!81 &961739751
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 961739749}
-  m_Enabled: 1
 --- !u!20 &961739752
 Camera:
   m_ObjectHideFlags: 0
@@ -1308,7 +1299,7 @@ Transform:
   m_GameObject: {fileID: 990393832}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.76, y: 0.467, z: 47.51}
+  m_LocalPosition: {x: 1.82, y: 0.467, z: 4.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1781,6 +1772,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4112236743247384396, guid: 2c1b782570406de488c6f114de74c042, type: 3}
       insertIndex: -1
       addedObject: {fileID: 697655605005047792}
+    - targetCorrespondingSourceObject: {fileID: 4112236743247384396, guid: 2c1b782570406de488c6f114de74c042, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 697655605005047793}
   m_SourcePrefab: {fileID: 100100000, guid: 2c1b782570406de488c6f114de74c042, type: 3}
 --- !u!4 &697655605005047787 stripped
 Transform:
@@ -1799,14 +1793,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 07e520bb410492d47bf739846d70f2a3, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 256
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1884,6 +1878,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!81 &697655605005047793
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771935924}
+  m_Enabled: 1
 --- !u!1001 &3401748590852700915
 PrefabInstance:
   m_ObjectHideFlags: 0
